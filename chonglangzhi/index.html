@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冲浪纸飞机图纸 - 折法图解、图纸下载与飞行调校指南</title>
+<meta name="description" content="冲浪纸飞机图纸专题：提供冲浪纸飞机的折法步骤图解、图纸比例说明、纸张选择、重心与升降舵调校方法，以及滑翔、回旋、长距离冲浪等不同玩法的图纸要点与常见问题解答。">
+<meta name="keywords" content="冲浪纸飞机图纸,冲浪纸飞机折法,纸飞机图纸,纸飞机折法图解,滑翔纸飞机,纸飞机调校">
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+<style>
+    :root{
+        --sky-1:#0f3d5c;
+        --sky-2:#1f6f9c;
+        --sky-3:#3fa9d6;
+        --wave:#0a8f9c;
+        --sand:#f4efe4;
+        --paper:#ffffff;
+        --ink:#16232e;
+        --ink-soft:#4a5c6b;
+        --line:#dfe6ec;
+        --accent:#f2762e;
+        --accent-soft:#fff1e6;
+        --radius:14px;
+        --shadow:0 8px 24px rgba(15,61,92,.10);
+    }
+    *{box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{
+        margin:0;
+        font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC",system-ui,sans-serif;
+        background:var(--sand);
+        color:var(--ink);
+        line-height:1.75;
+        -webkit-font-smoothing:antialiased;
+    }
+    a{color:inherit;text-decoration:none;}
+    img{max-width:100%;}
+    h1,h2,h3{line-height:1.35;margin:0;}
+    p{margin:0 0 1em;}
+    ul,ol{margin:0 0 1em;padding-left:1.25em;}
+    li{margin-bottom:.4em;}
+
+    /* 顶部导航 */
+    .site-header{
+        position:sticky;
+        top:0;
+        z-index:50;
+        background:rgba(255,255,255,.94);
+        backdrop-filter:blur(8px);
+        border-bottom:1px solid var(--line);
+    }
+    .header-inner{
+        max-width:1180px;
+        margin:0 auto;
+        padding:.7rem 1.2rem;
+        display:flex;
+        align-items:center;
+        gap:1.2rem;
+        flex-wrap:wrap;
+    }
+    .brand{
+        display:flex;
+        align-items:center;
+        gap:.6rem;
+        font-weight:800;
+        font-size:1.12rem;
+        letter-spacing:.5px;
+        color:var(--sky-1);
+    }
+    .brand-mark{
+        width:34px;height:34px;
+        border-radius:10px;
+        background:linear-gradient(140deg,var(--sky-3),var(--wave));
+        display:grid;place-items:center;
+        color:#fff;font-size:1rem;
+        box-shadow:0 4px 10px rgba(10,143,156,.35);
+    }
+    .site-nav{
+        margin-left:auto;
+        display:flex;
+        gap:.35rem;
+        flex-wrap:wrap;
+    }
+    .site-nav a{
+        padding:.4rem .8rem;
+        border-radius:999px;
+        font-size:.92rem;
+        color:var(--ink-soft);
+        transition:.2s;
+    }
+    .site-nav a:hover{
+        background:var(--accent-soft);
+        color:var(--accent);
+    }
+
+    /* 首屏 */
+    .hero{
+        background:
+            radial-gradient(1200px 400px at 80% -10%,rgba(63,169,214,.55),transparent 65%),
+            linear-gradient(160deg,var(--sky-1) 0%,var(--sky-2) 55%,var(--wave) 100%);
+        color:#fff;
+        padding:3.6rem 1.2rem 3rem;
+        position:relative;
+        overflow:hidden;
+    }
+    .hero::after{
+        content:"";
+        position:absolute;
+        left:0;right:0;bottom:-1px;
+        height:70px;
+        background:var(--sand);
+        clip-path:polygon(0 100%,0 55%,8% 40%,18% 62%,30% 30%,42% 58%,55% 26%,68% 60%,80% 34%,92% 62%,100% 44%,100% 100%);
+        opacity:.95;
+    }
+    .hero-inner{
+        max-width:1180px;
+        margin:0 auto;
+        position:relative;
+        z-index:2;
+        display:grid;
+        grid-template-columns:1.15fr .85fr;
+        gap:2.4rem;
+        align-items:center;
+    }
+    .hero-tag{
+        display:inline-block;
+        background:rgba(255,255,255,.16);
+        border:1px solid rgba(255,255,255,.35);
+        padding:.25rem .85rem;
+        border-radius:999px;
+        font-size:.82rem;
+        letter-spacing:1px;
+        margin-bottom:1rem;
+    }
+    .hero h1{
+        font-size:clamp(1.7rem,4vw,2.5rem);
+        font-weight:800;
+        margin-bottom:1rem;
+    }
+    .hero h1 span{
+        color:#ffd9a8;
+    }
+    .hero p{
+        color:rgba(255,255,255,.9);
+        font-size:1.02rem;
+        max-width:56ch;
+    }
+    .hero-actions{
+        display:flex;
+        gap:.8rem;
+        flex-wrap:wrap;
+        margin-top:1.4rem;
+    }
+    .btn{
+        display:inline-block;
+        padding:.7rem 1.5rem;
+        border-radius:999px;
+        font-weight:600;
+        font-size:.95rem;
+        transition:.22s;
+        border:1px solid transparent;
+        cursor:pointer;
+    }
+    .btn-primary{
+        background:var(--accent);
+        color:#fff;
+        box-shadow:0 6px 18px rgba(242,118,46,.4);
+    }
+    .btn-primary:hover{transform:translateY(-2px);background:#e0651c;}
+    .btn-ghost{
+        border-color:rgba(255,255,255,.6);
+        color:#fff;
+    }
+    .btn-ghost:hover{background:rgba(255,255,255,.14);}
+
+    .hero-card{
+        background:rgba(255,255,255,.12);
+        border:1px solid rgba(255,255,255,.3);
+        border-radius:18px;
+        padding:1.4rem 1.5rem;
+        backdrop-filter:blur(6px);
+    }
+    .hero-card h3{
+        font-size:1rem;
+        margin-bottom:.9rem;
+        color:#ffd9a8;
+        letter-spacing:.5px;
+    }
+    .hero-card ul{
+        list-style:none;
+        padding:0;
+        margin:0;
+    }
+    .hero-card li{
+        display:flex;
+        gap:.6rem;
+        font-size:.92rem;
+        color:rgba(255,255,255,.92);
+        padding:.42rem 0;
+        border-bottom:1px dashed rgba(255,255,255,.22);
+    }
+    .hero-card li:last-child{border-bottom:none;}
+    .hero-card li b{color:#fff;font-weight:600;}
+
+    /* 通用区块 */
+    .wrap{
+        max-width:1180px;
+        margin:0 auto;
+        padding:0 1.2rem;
+    }
+    section{padding:3rem 0;}
+    .sec-head{
+        margin-bottom:1.8rem;
+    }
+    .sec-head .kicker{
+        color:var(--wave);
+        font-size:.85rem;
+        font-weight:700;
+        letter-spacing:2px;
+        text-transform:uppercase;
+    }
+    .sec-head h2{
+        font-size:clamp(1.35rem,2.6vw,1.8rem);
+        margin:.35rem 0 .5rem;
+        color:var(--sky-1);
+    }
+    .sec-head p{
+        color:var(--ink-soft);
+        max-width:70ch;
+        margin:0;
+    }
+
+    /* 图纸类型卡片 */
+    .grid-3{
+        display:grid;
+        grid-template-columns:repeat(3,1fr);
+        gap:1.3rem;
+    }
+    .card{
+        background:var(--paper);
+        border:1px solid var(--line);
+        border-radius:var(--radius);
+        padding:1.5rem;
+        box-shadow:var(--shadow);
+        transition:.25s;
+        display:flex;
+        flex-direction:column;
+    }
+    .card:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(15,61,92,.16);}
+    .card .icon{
+        width:44px;height:44px;
+        border-radius:12px;
+        display:grid;place-items:center;
+        font-size:1.25rem;
+        background:var(--accent-soft);
+        color:var(--accent);
+        margin-bottom:.9rem;
+    }
+    .card h3{
+        font-size:1.08rem;
+        color:var(--sky-1);
+        margin-bottom:.5rem;
+    }
+    .card p{
+        color:var(--ink-soft);
+        font-size:.93rem;
+        margin-bottom:.9rem;
+    }
+    .card .meta{
+        margin-top:auto;
+        font-size:.82rem;
+        color:var(--wave);
+        font-weight:600;
+    }
+
+    /* 折法步骤 */
+    .steps-block{
+        background:var(--paper);
+        border-radius:18px;
+        border:1px solid var(--line);
+        box-shadow:var(--shadow);
+        padding:2rem;
+    }
+    .steps{
+        display:grid;
+        grid-template-columns:repeat(4,1fr);
+        gap:1.1rem;
+        counter-reset:step;
+        margin-top:1.4rem;
+    }
+    .step{
+        background:linear-gradient(180deg,#f8fbfd,#eef6fa);
+        border:1px solid #dbe9f1;
+        border-radius:12px;
+        padding:1.1rem 1rem 1.2rem;
+        position:relative;
+    }
+    .step::before{
+        counter-increment:step;
+        content:counter(step);
+        position:absolute;
+        top:-14px;left:14px;
+        width:30px;height:30px;
+        border-radius:50%;
+        background:var(--sky-2);
+        color:#fff;
+        display:grid;place-items:center;
+        font-size:.88rem;
+        font-weight:700;
+        box-shadow:0 4px 10px rgba(31,111,156,.35);
+    }
+    .step h3{
+        font-size:.98rem;
+        margin:.7rem 0 .4rem;
+        color:var(--sky-1);
+    }
+    .step p{
+        font-size:.86rem;
+        color:var(--ink-soft);
+        margin:0;
+    }
+
+    /* 参数表 */
+    .spec-table{
+        width:100%;
+        border-collapse:collapse;
+        background:var(--paper);
+        border-radius:var(--radius);
+        overflow:hidden;
+        box-shadow:var(--shadow);
+        font-size:.92rem;
+    }
+    .spec-table th,
+    .spec-table td{
+        padding:.85rem 1rem;
+        text-align:left;
+        border-bottom:1px solid var(--line);
+    }
+    .spec-table thead th{
+        background:var(--sky-1);
+        color:#fff;
+        font-weight:600;
+        font-size:.88rem;
+        letter-spacing:.5px;
+    }
+    .spec-table tbody tr:nth-child(even){background:#f8fbfd;}
+    .spec-table tbody tr:last-child td{border-bottom:none;}
+    .spec-table td:first-child{font-weight:600;color:var(--sky-1);}
+
+    /* 调校指南 双栏 */
+    .two-col{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:1.6rem;
+    }
+    .panel{
+        background:var(--paper);
+        border:1px solid var(--line);
+        border-radius:var(--radius);
+        padding:1.6rem;
+        box-shadow:var(--shadow);
+    }
+    .panel h3{
+        font-size:1.1rem;
+        color:var(--sky-1);
+        margin-bottom:.8rem;
+        display:flex;
+        align-items:center;
+        gap:.5rem;
+    }
+    .panel h3::before{
+        content:"";
+        width:6px;height:20px;
+        border-radius:4px;
+        background:var(--accent);
+        display:inline-block;
+    }
+    .panel ul{padding-left:1.1rem;color:var(--ink-soft);font-size:.94rem;}
+    .panel ul li b{color:var(--ink);}
+
+    /* 玩法榜单 */
+    .play-list{
+        display:grid;
+        grid-template-columns:repeat(2,1fr);
+        gap:1rem;
+    }
+    .play-item{
+        display:flex;
+        gap:1rem;
+        background:var(--paper);
+        border:1px solid var(--line);
+        border-radius:var(--radius);
+        padding:1.1rem 1.2rem;
+        box-shadow:var(--shadow);
+        align-items:flex-start;
+    }
+    .play-rank{
+        flex:0 0 auto;
+        width:36px;height:36px;
+        border-radius:10px;
+        background:linear-gradient(140deg,var(--sky-3),var(--wave));
+        color:#fff;
+        display:grid;place-items:center;
+        font-weight:800;
+        font-size:.95rem;
+    }
+    .play-item h3{
+        font-size:1rem;
+        color:var(--sky-1);
+        margin-bottom:.25rem;
+    }
+    .play-item p{
+        font-size:.88rem;
+        color:var(--ink-soft);
+        margin:0;
+    }
+
+    /* 常见问题 */
+    .faq-list{
+        display:grid;
+        gap:.9rem;
+    }
+    .faq-item{
+        background:var(--paper);
+        border:1px solid var(--line);
+        border-radius:var(--radius);
+        box-shadow:var(--shadow);
+        overflow:hidden;
+    }
+    .faq-item summary{
+        cursor:pointer;
+        padding:1.05rem 1.3rem;
+        font-weight:600;
+        color:var(--sky-1);
+        list-style:none;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        gap:1rem;
+        font-size:.98rem;
+    }
+    .faq-item summary::-webkit-details-marker{display:none;}
+    .faq-item summary::after{
+        content:"+";
+        font-size:1.25rem;
+        color:var(--accent);
+        font-weight:400;
+        transition:.2s;
+    }
+    .faq-item[open] summary::after{transform:rotate(45deg);}
+    .faq-item .faq-body{
+        padding:0 1.3rem 1.2rem;
+        color:var(--ink-soft);
+        font-size:.93rem;
+        border-top:1px dashed var(--line);
+        padding-top:1rem;
+    }
+    .faq-item .faq-body p:last-child{margin-bottom:0;}
+
+    /* 侧栏提示条 */
+    .tip-bar{
+        background:linear-gradient(120deg,#fff5ec,#eaf6fb);
+        border:1px dashed #f0c39b;
+        border-radius:var(--radius);
+        padding:1.3rem 1.5rem;
+        display:flex;
+        gap:1rem;
+        align-items:flex-start;
+        margin-top:1.6rem;
+    }
+    .tip-bar .tip-icon{
+        font-size:1.4rem;
+        line-height:1;
+    }
+    .tip-bar p{margin:0;font-size:.92rem;color:#7a4a1e;}
+    .tip-bar strong{color:#a8571a;}
+
+    /* 页脚 */
+    .site-footer{
+        background:var(--sky-1);
+        color:rgba(255,255,255,.78);
+        padding:2.6rem 1.2rem 1.6rem;
+        margin-top:2rem;
+    }
+    .footer-inner{
+        max-width:1180px;
+        margin:0 auto;
+        display:grid;
+        grid-template-columns:1.4fr 1fr 1fr;
+        gap:2rem;
+    }
+    .footer-inner h3{
+        color:#fff;
+        font-size:1rem;
+        margin-bottom:.9rem;
+    }
+    .footer-inner p{font-size:.88rem;margin:0 0 .6rem;}
+    .footer-links{list-style:none;padding:0;margin:0;}
+    .footer-links li{margin-bottom:.5rem;}
+    .footer-links a{font-size:.88rem;color:rgba(255,255,255,.78);transition:.2s;}
+    .footer-links a:hover{color:#ffd9a8;}
+    .footer-bottom{
+        max-width:1180px;
+        margin:1.8rem auto 0;
+        padding-top:1.2rem;
+        border-top:1px solid rgba(255,255,255,.16);
+        font-size:.82rem;
+        color:rgba(255,255,255,.55);
+        text-align:center;
+    }
+
+    /* 响应式 */
+    @media (max-width:960px){
+        .hero-inner{grid-template-columns:1fr;}
+        .grid-3{grid-template-columns:repeat(2,1fr);}
+        .steps{grid-template-columns:repeat(2,1fr);}
+        .footer-inner{grid-template-columns:1fr 1fr;}
+    }
+    @media (max-width:680px){
+        .site-nav{width:100%;margin-left:0;justify-content:flex-start;}
+        .grid-3{grid-template-columns:1fr;}
+        .steps{grid-template-columns:1fr;}
+        .two-col{grid-template-columns:1fr;}
+        .play-list{grid-template-columns:1fr;}
+        .footer-inner{grid-template-columns:1fr;}
+        section{padding:2.2rem 0;}
+        .hero{padding:2.6rem 1.2rem 2.4rem;}
+        .steps-block{padding:1.4rem;}
+        .spec-table{font-size:.85rem;}
+        .spec-table th,.spec-table td{padding:.65rem .7rem;}
+    }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+    <div class="header-inner">
+        <a class="brand" href="#top">
+            <span class="brand-mark">✈</span>
+            <span>冲浪纸飞机图纸</span>
+        </a>
+        <nav class="site-nav" aria-label="主导航">
+            <a href="#types">图纸类型</a>
+            <a href="#steps">折法步骤</a>
+            <a href="#spec">参数对照</a>
+            <a href="#tuning">调校指南</a>
+            <a href="#plays">玩法推荐</a>
+            <a href="#faq">常见问题</a>
+        </nav>
+    </div>
+</header>
+
+<main id="top">
+
+    <!-- 首屏 -->
+    <section class="hero">
+        <div class="hero-inner">
+            <div>
+                <span class="hero-tag">图纸 · 折法 · 调校</span>
+                <h1>冲浪纸飞机图纸：<span>从一张纸到稳定滑翔</span></h1>
+                <p>“冲浪纸飞机”通常指机翼面积较大、机身修长、能够借助气流长时间滑翔的纸飞机样式。它的图纸与普通纸飞机最大的区别在于机翼宽窄、重心位置和升降舵角度。本页整理常见冲浪纸飞机图纸的类型、比例参数、折法顺序与飞行调校方法，帮助你把图纸上的线条变成真正能飞稳的飞机。</p>
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="#steps">查看折法步骤</a>
+                    <a class="btn btn-ghost" href="#spec">对照图纸参数</a>
+                </div>
+            </div>
+            <aside class="hero-card">
+                <h3>开始前先确认三件事</h3>
+                <ul>
+                    <li><b>纸张：</b>建议 70–80g 复印纸，过厚不易折出锐利折痕</li>
+                    <li><b>比例：</b>机翼展长与机身长度接近 1:1 更利于滑翔</li>
+                    <li><b>对称：</b>左右机翼折痕不一致是打转的主要原因</li>
+                </ul>
+            </aside>
+        </div>
+    </section>
+
+    <!-- 图纸类型 -->
+    <section id="types">
+        <div class="wrap">
+            <div class="sec-head">
+                <span class="kicker">Blueprint Types</span>
+                <h2>常见的冲浪纸飞机图纸类型</h2>
+                <p>不同图纸对应不同的飞行目标。选择图纸时，先想清楚你是想让它飞得久、飞得远，还是做出回旋和翻筋斗的动作，再决定机翼形状与配重方式。</p>
+            </div>
+            <div class="grid-3">
+                <article class="card">
+                    <div class="icon">🕊</div>
+                    <h3>长滑翔型图纸</h3>
+                    <p>机翼宽大、翼尖略上翘，机身相对短。图纸重点标注翼展宽度与翼尖上反角，适合在无风或微风环境下手掷，追求滞空时间。</p>
+                    <span class="meta">适合：室内、无风户外</span>
+                </article>
+                <article class="card">
+                    <div class="icon">🌊</div>
+                    <h3>冲浪回旋型图纸</h3>
+                    <p>一侧升降舵略上翘、机身带轻微侧倾，图纸会标注左右不对称的角度差。飞行时沿弧线返回，适合开阔场地反复投掷。</p>
+                    <span class="meta">适合：操场、草地</span>
+                </article>
+                <article class="card">
+                    <div class="icon">🎯</div>
+                    <h3>直线远投型图纸</h3>
+                    <p>机身细长、机翼窄而硬，图纸强调纵向强度与重心前移。出手速度快时轨迹更直，适合比距离的玩法。</p>
+                    <span class="meta">适合：有风、空旷场地</span>
+                </article>
+                <article class="card">
+                    <div class="icon">🌀</div>
+                    <h3>特技翻转型图纸</h3>
+                    <p>机翼后缘升降舵上翘幅度较大，重心偏后。图纸会标注副翼与升降舵的配合角度，用于做翻滚、急转等动作。</p>
+                    <span class="meta">适合：熟练玩家</span>
+                </article>
+                <article class="card">
+                    <div class="icon">📐</div>
+                    <h3>可调节配重型图纸</h3>
+                    <p>图纸预留机身夹层或回形针位置，方便前后移动配重。通过调整重心，同一张图纸可以兼顾滑翔和远投两种状态。</p>
+                    <span class="meta">适合：喜欢反复试验</span>
+                </article>
+                <article class="card">
+                    <div class="icon">🧒</div>
+                    <h3>入门简化型图纸</h3>
+                    <p>折数少、折痕方向明确，图纸用大号标注区分“山折”和“谷折”。适合第一次接触冲浪纸飞机的人快速完成。</p>
+                    <span class="meta">适合：新手与亲子</span>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 折法步骤 -->
+    <section id="steps">
+        <div class="wrap">
+            <div class="sec-head">
+                <span class="kicker">Folding Steps</span>
+                <h2>冲浪纸飞机通用折法步骤</h2>
+                <p>下面的顺序适用于大多数冲浪纸飞机图纸。实际图纸可能在机翼收折方式上有差异，但“先定中线、再折机翼、最后调升降舵”的逻辑是一致的。</p>
+            </div>
+            <div class="steps-block">
+                <div class="steps">
+                    <div class="step">
+                        <h3>对折定中线</h3>
+                        <p>纸张纵向对折后展开，留下清晰中线。所有后续折痕都以这条中线为基准，中线歪斜会直接导致飞机打转。</p>
+                    </div>
+                    <div class="step">
+                        <h3>折出机头三角</h3>
+                        <p>将顶部两角沿中线折下，形成尖角。冲浪型图纸通常只折一次，机头比普通纸飞机更钝，利于滑翔时保持仰角。</p>
+                    </div>
+                    <div class="step">
+                        <h3>收折机身</h3>
+                        <p>沿中线再次对折，把刚折出的三角包在内部。此时机身厚度增加，折痕要用指甲压实，避免飞行时张开。</p>
+                    </div>
+                    <div class="step">
+                        <h3>折出机翼</h3>
+                        <p>按图纸标注的高度把两侧机翼向下翻折，翼根留出约一指宽的机身。机翼越宽，滑翔越稳；越窄，速度越快。</p>
+                    </div>
+                    <div class="step">
+                        <h3>调整翼尖上反角</h3>
+                        <p>把两侧翼尖向上折出小角度，形成上反角。它能提供横滚方向的自我修正，是冲浪纸飞机不容易侧翻的关键。</p>
+                    </div>
+                    <div class="step">
+                        <h3>折出升降舵</h3>
+                        <p>在机翼后缘向上折出约 5–10 毫米的小边。升降舵上翘幅度决定抬头还是低头，是飞行调校中最常用的调整点。</p>
+                    </div>
+                    <div class="step">
+                        <h3>检查左右对称</h3>
+                        <p>把飞机举到与视线齐平，从机头方向观察两侧机翼角度是否一致。不对称时用手轻掰修正，不要反复折压。</p>
+                    </div>
+                    <div class="step">
+                        <h3>试飞与微调</h3>
+                        <p>先轻掷测试滑翔状态，再逐步加大力度。每次只调整一个变量，才能判断是重心、升降舵还是机翼角度的问题。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 参数对照 -->
+    <section id="spec">
+        <div class="wrap">
+            <div class="sec-head">
+                <span class="kicker">Specification</span>
+                <h2>图纸关键参数对照表</h2>
+                <p>图纸上的尺寸不必逐毫米照搬，但比例关系应当保持。下表给出常见冲浪纸飞机在 A4 纸张条件下的参考范围，实际可按纸张大小等比缩放。</p>
+            </div>
+            <table class="spec-table">
+                <thead>
+                    <tr>
+                        <th>参数项</th>
+                        <th>滑翔型参考值</th>
+                        <th>远投型参考值</th>
+                        <th>对飞行的影响</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>翼展 / 机身长</td>
+                        <td>约 1 : 1</td>
+                        <td>约 0.8 : 1</td>
+                        <td>翼展越大，滑翔越稳但速度越慢</td>
+                    </tr>
+                    <tr>
+                        <td>机翼宽度</td>
+                        <td>较宽，约占纸宽一半</td>
+                        <td>较窄，约占纸宽三分之一</td>
+                        <td>宽翼升力大，窄翼阻力小</td>
+                    </tr>
+                    <tr>
+                        <td>升降舵上翘</td>
+                        <td>5–8 毫米</td>
+                        <td>2–4 毫米</td>
+                        <td>上翘越多越抬头，过多会失速</td>
+                    </tr>
+                    <tr>
+                        <td>重心位置</td>
+                        <td>机身中部偏前</td>
+                        <td>机头后方约三分之一处</td>
+                        <td>重心靠前飞得稳，靠后易翻转</td>
+                    </tr>
+                    <tr>
+                        <td>翼尖上反角</td>
+                        <td>约 10°–15°</td>
+                        <td>约 5°–10°</td>
+                        <td>提供横滚自稳，减少侧翻</td>
+                    </tr>
+                    <tr>
+                        <td>建议纸张</td>
+                        <td>70–80g 复印纸</td>
+                        <td>80–100g 稍硬纸</td>
+                        <td>纸张过硬不易折，过软易变形</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="tip-bar">
+                <span class="tip-icon">💡</span>
+                <p><strong>关于图纸缩放：</strong>用 A3 或更小的纸折同一张图纸时，所有折痕位置按比例缩放即可，但纸张克重不宜同步放大。纸张越大越软，机翼容易下垂，反而影响滑翔表现。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 调校指南 -->
+    <section id="tuning">
+        <div class="wrap">
+            <div class="sec-head">
+                <span class="kicker">Tuning Guide</span>
+                <h2>飞行调校：让图纸真正飞起来</h2>
+                <p>同一张图纸折出来的飞机，飞行表现可能差别很大，原因几乎都出在重心与舵面角度上。下面按常见现象给出排查方向。</p>
+            </div>
+            <div class="two-col">
+                <div class="panel">
+                    <h3>常见飞行问题与调整</h3>
+                    <ul>
+                        <li><b>机头下坠：</b>升降舵上翘不足，或重心过于靠前。先加大升降舵角度，再考虑后移配重。</li>
+                        <li><b>机头上仰后失速：</b>升降舵上翘过多或重心偏后。把升降舵压平一些，或在前端加一点配重。</li>
+                        <li><b>原地打转：</b>左右机翼折痕不对称。从机头方向观察并轻掰修正，重点检查翼尖角度。</li>
+                        <li><b>侧翻坠地：</b>翼尖上反角不足或两侧不一致。适当增加上反角，并确保左右对称。</li>
+                        <li><b>飞不远：</b>机翼过宽或机身过重。可改用窄翼图纸，或减少夹层与胶带。</li>
+                        <li><b>轨迹忽高忽低：</b>机身纵向强度不够。在机身中部增加一道折痕或贴一小段胶带加固。</li>
+                    </ul>
+                </div>
+                <div class="panel">
+                    <h3>按飞行环境选择图纸</h3>
+                    <ul>
+                        <li><b>室内无风：</b>优先选长滑翔型图纸，升降舵略大，出手轻缓。</li>
+                        <li><b>户外微风：</b>选冲浪回旋型，借助气流盘旋，注意避开树木和建筑。</li>
+                        <li><b>有持续风：</b>选直线远投型，机翼窄、机身硬，出手角度略低于水平。</li>
+                        <li><b>空间狭小：</b>选回旋型图纸，让它绕回身边，减少捡飞机的次数。</li>
+                        <li><b>草地场地：</b>机头可加一小段胶带保护，落地时不易卷边。</li>
+                        <li><b>多人一起玩：</b>统一使用同一张图纸和同规格纸张，比较结果才公平。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 玩法推荐 -->
+    <section id="plays">
+        <div class="wrap">
+            <div class="sec-head">
+                <span class="kicker">Play Ideas</span>
+                <h2>用同一张图纸玩出不同花样</h2>
+                <p>图纸只是起点。掌握基础折法后，可以通过改变配重、升降舵和出手方式来体验不同玩法。</p>
+            </div>
+            <div class="play-list">
+                <article class="play-item">
+                    <span class="play-rank">01</span>
+                    <div>
+                        <h3>滞空计时</h3>
+                        <p>用长滑翔型图纸，从同一高度、同一力度出手，记录飞机从离手到落地的时间，比较不同升降舵角度的差异。</p>
+                    </div>
+                </article>
+                <article class="play-item">
+                    <span class="play-rank">02</span>
+                    <div>
+                        <h3>回旋接力</h3>
+                        <p>把回旋型图纸的升降舵调出一侧略高的角度，让飞机沿弧线飞回。多人站在不同位置轮流接机，考验调校精度。</p>
+                    </div>
+                </article>
+                <article class="play-item">
+                    <span class="play-rank">03</span>
+                    <div>
+                        <h3>穿越障碍</h3>
+                        <p>在场地中设置两个标志物作为“门”，用直线远投型图纸练习低平轨迹穿越，重点控制出手角度而不是蛮力。</p>
+                    </div>
+                </article>
+                <article class="play-item">
+                    <span class="play-rank">04</span>
+                    <div>
+                        <h3>图纸改造实验</h3>
+                        <p>在基础图纸上尝试加宽或收窄机翼，每次只改一个尺寸，记录飞行变化，理解机翼面积与升力的关系。</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 常见问题 -->
+    <section id="faq">
+        <div class="wrap">
+            <div class="sec-head">
+                <span class="kicker">FAQ</span>
+                <h2>关于冲浪纸飞机图纸的常见问题</h2>
+                <p>整理自折纸与纸飞机爱好者经常遇到的疑问，供初次接触冲浪纸飞机的人参考。</p>
+            </div>
+            <div class="faq-list">
+                <details class="faq-item" open>
+                    <summary>冲浪纸飞机和普通纸飞机有什么区别？</summary>
+                    <div class="faq-body">
+                        <p>主要区别在机翼比例和飞行方式。普通纸飞机机翼较短、机身相对粗，飞行以直线冲刺为主；冲浪纸飞机的机翼更宽更长，机身修长，重心和升降舵经过调整后可以借助气流持续滑翔，轨迹更接近缓慢起伏的“冲浪”状态。</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary>没有打印机，图纸可以照着画吗？</summary>
+                    <div class="faq-body">
+                        <p>可以。冲浪纸飞机的图纸本质上是一组折痕位置和比例关系，只要记住中线位置、机翼翻折高度和升降舵宽度，就能直接在纸上折出来。建议先用铅笔在纸上轻轻标出关键折痕点，折完后再擦掉。</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary>为什么我的飞机总是往一边偏？</summary>
+                    <div class="faq-body">
+                        <p>最常见的原因是左右机翼不对称。把飞机举到与视线齐平，从机头正前方观察两侧机翼的角度和翼尖高度，找出偏差后用手轻轻掰正。其次是升降舵左右宽度不一致，检查两侧折边是否等宽即可。</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary>用多大的纸折比较合适？</summary>
+                    <div class="faq-body">
+                        <p>A4 是最常用的尺寸，折出来的飞机适合室内和一般户外场地。A5 折出的飞机更小巧，适合空间有限的室内；A3 折出的飞机翼展大，滑翔姿态更明显，但对纸张硬度和出手力度要求更高，新手可以先从 A4 开始。</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary>可以在飞机上加胶带或回形针吗？</summary>
+                    <div class="faq-body">
+                        <p>可以，但要有目的。机头加一小段胶带能保护纸张并略微前移重心；机身夹层放回形针可以灵活调整重心位置。需要注意的是，增加的重量会改变原有的滑翔状态，加完之后要重新试飞并调整升降舵。</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary>冲浪纸飞机适合在什么场地玩？</summary>
+                    <div class="faq-body">
+                        <p>优先选择开阔、人少、没有高压线和密集树木的场地，比如操场、草地或空旷的广场。回旋型图纸在稍小的空间也能玩，但要注意周围是否有人，避免飞机直接飞向他人面部。室内则应避开吊灯和风扇。</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer class="site-footer">
+    <div class="footer-inner">
+        <div>
+            <h3>冲浪纸飞机图纸</h3>
+            <p>一个围绕冲浪纸飞机图纸、折法与飞行调校整理的内容页面，帮助爱好者从看懂图纸开始，一步步折出能稳定滑翔的纸飞机。</p>
+            <p>所有参数均为通用参考范围，实际效果会因纸张、折法和出手方式而不同。</p>
+        </div>
+        <div>
+            <h3>内容导航</h3>
+            <ul class="footer-links">
+                <li><a href="#types">图纸类型</a></li>
+                <li><a href="#steps">折法步骤</a></li>
+                <li><a href="#spec">参数对照</a></li>
+                <li><a href="#tuning">调校指南</a></li>
+            </ul>
+        </div>
+        <div>
+            <h3>实用提示</h3>
+            <ul class="footer-links">
+                <li><a href="#plays">玩法推荐</a></li>
+                <li><a href="#faq">常见问题</a></li>
+                <li><a href="#top">返回顶部</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        © 冲浪纸飞机图纸 · 折纸与滑翔纸飞机爱好者参考页面
+    </div>
+</footer>
+
+<script>
+    // 平滑滚动时给目标区块留出粘性导航的高度
+    document.querySelectorAll('a[href^="#"]').forEach(function(link){
+        link.addEventListener('click', function(e){
+            var id = this.getAttribute('href');
+            if(id.length > 1){
+                var target = document.querySelector(id);
+                if(target){
+                    e.preventDefault();
+                    var offset = 70;
+                    var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({top: top, behavior: 'smooth'});
+                }
+            }
+        });
+    });
+
+    // 手风琴式 FAQ：一次只展开一项，便于阅读
+    var faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(function(item){
+        item.addEventListener('toggle', function(){
+            if(this.open){
+                faqItems.forEach(function(other){
+                    if(other !== item){ other.open = false; }
+                });
+            }
+        });
+    });
+</script>
+
+</body>
+  </html>
